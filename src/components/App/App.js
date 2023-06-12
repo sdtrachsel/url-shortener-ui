@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import {getUrls} from '../../apiCalls';
+import { getUrls } from '../../apiCalls';
 import UrlContainer from '../UrlContainer/UrlContainer';
 import UrlForm from '../UrlForm/UrlForm';
 
@@ -15,7 +15,8 @@ export class App extends Component {
   componentDidMount() {
     getUrls()
       .then(data => {
-        this.setState({urls: data.urls})
+        console.log('tocopy',data)
+        this.setState({ urls: data.urls })
       })
       .catch(err => {
         console.log(err)
@@ -36,8 +37,7 @@ export class App extends Component {
           <h1>URL Shortener</h1>
           <UrlForm addUrl={this.addUrl} />
         </header>
-
-        <UrlContainer urls={this.state.urls}/>
+        <UrlContainer urls={this.state.urls} />
       </main>
     );
   }
