@@ -8,13 +8,13 @@ describe('Form', () => {
     cy.visit('http://localhost:3000/')
   })
 
-  it.skip('has form fields', () => {
+  it('has form fields', () => {
     cy.get("input[name ='title']").should('exist')
       .get("input[name ='urlToShorten']").should('exist')
       .get('button').contains('Shorten Please')
   })
 
-  it.skip('form fields reflect user input', () => {
+  it('form fields reflect user input', () => {
     cy.get("input[name ='title']").type('Cool Link')
       .get("input[name ='urlToShorten']").type('https://unsplash.com/photos/xhC-pVI_Gno')
 
@@ -28,7 +28,6 @@ describe('Form', () => {
       fixture: 'newURL'
     }).as('addNewURL')
       .wait('@getURLs')
-
       .get("input[name ='title']").type('Test Four')
       .get("input[name ='urlToShorten']").type('https://unsplash.com/photos/KBLY9VwVIpM')
       .get('button').click()

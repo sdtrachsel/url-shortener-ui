@@ -23,14 +23,12 @@ class UrlForm extends Component {
     
     postUrl(newEntry)
       .then(data=>{
-        console.log(data)
         this.props.addUrl(data)
         this.clearInputs();
       })
       .catch(err => {
         console.log(err.message)
       })
-    
   }
 
   clearInputs = () => {
