@@ -15,7 +15,6 @@ export class App extends Component {
   componentDidMount() {
     getUrls()
       .then(data => {
-        console.log('tocopy',data)
         this.setState({ urls: data.urls })
       })
       .catch(err => {
